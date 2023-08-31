@@ -42,7 +42,7 @@ function restartGame() {
   count = 0;
   enableButtons();
 }
-
+// Executed when a player wins
 const winFunction = (letter) => {
   disabledButtons();
 
@@ -68,15 +68,17 @@ const disabledButtons = () => {
 
 // Win Logic
 const winChecker = () => {
+  // Loop through all win patterns
   for (const i of winningPattern) {
     let [ele1, ele2, ele3] = [
       btn_options[i[0]].innerText,
       btn_options[i[1]].innerText,
       btn_options[i[2]].innerText,
     ];
-
+// if 3 emty elements are same and would give win as would 
     if (ele1 != "" && ele2 != "" && ele3 != "") {
       if (ele1 == ele2 && ele2 == ele3) {
+        // pass value to winFunction
         winFunction(ele1);
       }
     }
